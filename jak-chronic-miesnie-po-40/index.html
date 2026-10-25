@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jak chronić mięśnie po czterdziestce</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F7F8; --surface:#FFFFFF; --ink:#17212B; --muted:#586472; --line:#DCE1E6;
+  --accent:#A3242E; --accent-ink:#FFFFFF; --soft:#F7E9EA; --ok:#1F6B4A; --warn:#8A5A00;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color-scheme: light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#12171D; --surface:#1A2129; --ink:#E8ECF0; --muted:#9AA6B2; --line:#2A333D;
+    --accent:#F0707A; --accent-ink:#1A0A0C; --soft:#2B1B1E; --ok:#6FD3A4; --warn:#E8B85C;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12171D; --surface:#1A2129; --ink:#E8ECF0; --muted:#9AA6B2; --line:#2A333D;
+  --accent:#F0707A; --accent-ink:#1A0A0C; --soft:#2B1B1E; --ok:#6FD3A4; --warn:#E8B85C;
+  color-scheme: dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.55;-webkit-text-size-adjust:100%}
+main{max-width:40rem;margin:0 auto;padding:2rem 1.25rem 3rem}
+h1,h2,h3{font-family:var(--display);line-height:1.12;margin:0}
+h1{font-size:clamp(2.1rem,8vw,2.9rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:1.6rem;font-weight:700;letter-spacing:-.01em;margin-top:3rem}
+h3{font-size:1.2rem;font-weight:700}
+p{margin:.6rem 0}
+.lead{font-size:1.15rem;color:var(--muted);margin-top:.9rem}
+.authors{margin-top:1.2rem;font-size:.95rem;color:var(--muted)}
+.authors strong{color:var(--ink)}
+
+.step{position:relative;margin-top:1.5rem;padding:1.25rem 1.25rem 1.35rem 1.25rem;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.step-head{display:flex;gap:.85rem;align-items:baseline}
+.num{font-family:var(--display);font-weight:800;font-size:1.6rem;color:var(--accent);min-width:1.4rem}
+.muted{color:var(--muted)}
+.small{font-size:.92rem}
+
+/* Timer: the one memorable element */
+.timer{margin-top:1rem;border-radius:12px;background:var(--soft);padding:1.25rem 1rem;text-align:center}
+.time{font-family:var(--display);font-weight:800;font-size:clamp(3.6rem,18vw,5.2rem);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.03em;color:var(--accent)}
+.time small{font-size:.4em;font-weight:700;margin-left:.15em}
+.controls{display:flex;gap:.6rem;justify-content:center;margin-top:1rem;flex-wrap:wrap}
+button,.btn{font:inherit;font-weight:700;border-radius:999px;padding:.8rem 1.4rem;border:2px solid var(--accent);cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+.primary{background:var(--accent);color:var(--accent-ink)}
+.ghost{background:transparent;color:var(--accent)}
+button:focus-visible,.btn:focus-visible,input:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.result{margin-top:1rem;text-align:left;font-weight:600;min-height:1.5em}
+.result.good{color:var(--ok)} .result.mid{color:var(--warn)} .result.low{color:var(--accent)}
+
+ol.cues,ul.plain{padding-left:1.2rem;margin:.6rem 0}
+ol.cues li,ul.plain li{margin:.3rem 0}
+
+.calc{margin-top:1rem;display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+.calc label{font-weight:600}
+.calc input{font:inherit;width:6.5rem;padding:.6rem .7rem;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.calc-out{margin-top:.8rem;font-weight:600}
+
+.exercise{padding:1rem 0;border-top:1px solid var(--line)}
+.exercise:first-of-type{border-top:0}
+.dose{font-weight:700;color:var(--accent)}
+.drill{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line)}
+.drill:first-of-type{border-top:0;padding-top:0}
+.drill p{margin:0 0 .6rem}
+.vlink{display:inline-block;font-weight:700;color:var(--accent);text-decoration:underline;text-underline-offset:3px;margin-right:1rem}
+.vlink:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+.table-wrap{overflow-x:auto;margin-top:1rem}
+table{width:100%;border-collapse:collapse;font-size:1rem}
+th,td{text-align:left;padding:.6rem .4rem;border-bottom:1px solid var(--line)}
+th{font-weight:700;color:var(--muted);font-size:.92rem}
+td:last-child,th:last-child{text-align:right;white-space:nowrap}
+
+.safety{margin-top:3rem;padding:1.1rem 1.25rem;border-left:4px solid var(--warn);background:var(--surface);border-radius:0 12px 12px 0}
+.safety h2{margin-top:0;font-size:1.25rem}
+
+.cta{margin-top:3rem;padding:1.6rem 1.25rem;background:var(--ink);color:var(--bg);border-radius:16px}
+.cta h2{margin-top:0;color:var(--bg)}
+.cta p{color:var(--bg);opacity:.85}
+.cta .btn.primary{margin-top:.8rem;width:100%}
+.second{margin-top:1.6rem;font-size:.98rem}
+.second a{color:var(--accent);font-weight:700}
+footer{margin-top:2rem;font-size:.85rem;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Jak chronić mięśnie po czterdziestce</h1>
+    <p class="lead">Konkretny plan od fizjoterapeuty i dietetyka.</p>
+    <p class="authors"><strong>Stanisław Dolecki</strong>, fizjoterapeuta i trener<br><strong>Marcin Baran</strong>, dietetyk i trener</p>
+  </header>
+
+  <h2>Zrób to dziś</h2>
+  <p class="muted">Trzy kroki, łącznie około 20 minut.</p>
+
+  <section class="step" id="test">
+    <div class="step-head"><span class="num">1</span><h3>Sprawdź siłę nóg testem z krzesła</h3></div>
+    <ol class="cues">
+      <li>Postaw krzesło bez podłokietników przy ścianie, żeby się nie przesunęło.</li>
+      <li>Usiądź, stopy na szerokość bioder, ręce skrzyżuj na klatce.</li>
+      <li>Wstań do pełnego wyprostu i usiądź. Zrób to 5 razy, najszybciej jak potrafisz.</li>
+    </ol>
+    <div class="timer">
+      <div class="time" id="time" aria-live="off">0,0<small>s</small></div>
+      <div class="controls">
+        <button class="primary" id="startStop" type="button">Start</button>
+        <button class="ghost" id="reset" type="button">Od nowa</button>
+      </div>
+      <p class="result" id="result" aria-live="polite">Naciśnij Start, gdy zaczynasz, i Stop po piątym usiądnięciu.</p>
+    </div>
+  </section>
+
+  <section class="step" id="bialko">
+    <div class="step-head"><span class="num">2</span><h3>Dołóż białko do najbliższego posiłku</h3></div>
+    <p>Najczęstsza dziura to śniadanie. Prosty przykład: <strong>2 jajka i 150 g skyru to około 30 g białka.</strong></p>
+    <div class="calc">
+      <label for="kg">Twoja waga:</label>
+      <input id="kg" type="number" inputmode="decimal" min="35" max="250" placeholder="np. 80"> <span>kg</span>
+    </div>
+    <p class="calc-out" id="calcOut" aria-live="polite"></p>
+    <p class="small muted">Liczby orientacyjne dla zdrowej osoby, która trenuje. Masz chorobę nerek albo jakąkolwiek inną chorobę przewlekłą? Zanim zwiększysz ilość białka, skonsultuj to z lekarzem.</p>
+  </section>
+
+  <section class="step" id="trening-dzis">
+    <div class="step-head"><span class="num">3</span><h3>Zrób pierwszy trening, 10 minut w domu</h3></div>
+    <p>Trzy rundy, minuta przerwy między rundami:</p>
+    <div class="drill">
+      <p><strong>8–10 razy wstań z krzesła i usiądź</strong>, tym razem spokojnie.</p>
+      <a class="vlink" href="https://youtube.com/shorts/cUz_TSy7_fw?si=_u5MpwU3pOLmwrUp" target="_blank" rel="noopener">Zobacz wideo</a>
+    </div>
+    <div class="drill">
+      <p><strong>8–10 pompek</strong>: klasycznych na podłodze albo na kolanach.</p>
+      <a class="vlink" href="https://www.youtube.com/watch?v=WDIpL0pjun0" target="_blank" rel="noopener">Wideo: klasyczne</a><a class="vlink" href="https://www.youtube.com/watch?v=8XQ-okb5NWE" target="_blank" rel="noopener">Wideo: na kolanach</a>
+    </div>
+    <div class="drill">
+      <p><strong>30 sekund chodzenia z ciężką torbą z zakupami</strong> w każdej ręce.</p>
+      <a class="vlink" href="https://www.youtube.com/watch?v=8OtwXwrJizk" target="_blank" rel="noopener">Zobacz wideo</a>
+    </div>
+    <p class="drill"><strong>Powtarzaj ten trening 2–3 razy w tygodniu, z dniem przerwy.</strong> Co tydzień dołóż jedno powtórzenie albo trochę ciężaru.</p>
+  </section>
+
+  <h2>Białko: ściąga do lodówki</h2>
+  <p>Cel: białko w każdym posiłku, mniej więcej 25–30 g. Jeśli się odchudzasz, białka nie obcinaj, bo wtedy tracisz mięśnie zamiast tłuszczu.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Produkt i porcja</th><th>Białko</th></tr></thead>
+      <tbody>
+        <tr><td>2 jajka (L)</td><td>ok. 13 g</td></tr>
+        <tr><td>Skyr naturalny, 150 g</td><td>ok. 17 g</td></tr>
+        <tr><td>Twaróg półtłusty, pół kostki (125 g)</td><td>ok. 23 g</td></tr>
+        <tr><td>Serek wiejski, 200 g</td><td>ok. 22 g</td></tr>
+        <tr><td>Pierś z kurczaka, 120 g przed obróbką</td><td>ok. 27 g</td></tr>
+        <tr><td>Ryba, np. dorsz albo łosoś, 120 g</td><td>ok. 22 g</td></tr>
+        <tr><td>Soczewica ugotowana, 150 g</td><td>ok. 13 g</td></tr>
+        <tr><td>Tofu naturalne, 100 g</td><td>ok. 12 g</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Wartości orientacyjne, różnią się między producentami.</p>
+
+  <aside class="safety">
+    <h2>Zanim zaczniesz</h2>
+    <p>Masz chorobę nerek albo inną chorobę przewlekłą? Zanim zwiększysz ilość białka, skonsultuj to z lekarzem. Masz chorobę serca, nadciśnienie albo świeży uraz? Skonsultuj trening z lekarzem lub fizjoterapeutą. Ostry ból, zawroty głowy albo duszność w trakcie ćwiczeń oznaczają: przerwij.</p>
+  </aside>
+
+  <section class="cta" id="kontakt">
+    <h2>Ile białka brakuje w Twojej diecie?</h2>
+    <p>Napisz do Marcina swój wynik testu z krzesła i to, co zwykle jesz na śniadanie. Odpisze Ci, czego brakuje i od czego zacząć.</p>
+    <a class="btn primary" id="marcinBtn" href="https://ig.me/m/mbaran.dietetyk">Napisz do Marcina</a>
+  </section>
+
+  <p class="second">Chcesz trenować pod okiem fizjoterapeuty? <a id="stanBtn" href="https://ig.me/m/stasiekdolecki">Napisz do Stanisława</a></p>
+
+  <footer>Ten protokół to materiał edukacyjny i nie zastępuje konsultacji lekarskiej.</footer>
+</main>
+
+<script>
+(function(){
+  var timeEl=document.getElementById('time'), btn=document.getElementById('startStop'),
+      resetBtn=document.getElementById('reset'), resEl=document.getElementById('result');
+  var start=0, raf=null, running=false, elapsed=0;
+  function fmt(s){return s.toFixed(1).replace('.',',')+'<small>s</small>';}
+  function tick(){elapsed=(performance.now()-start)/1000;timeEl.innerHTML=fmt(elapsed);raf=requestAnimationFrame(tick);}
+  function interpret(s){
+    resEl.className='result';
+    if(s<10){resEl.classList.add('good');resEl.textContent='Dobry punkt wyjścia. Twoje zadanie: utrzymać tę siłę. Trenuj 2 razy w tygodniu.';}
+    else if(s<=15){resEl.classList.add('mid');resEl.textContent='Masz zapas, ale nie odkładaj treningu. Jak na Twój wiek ten wynik może być lepszy.';}
+    else{resEl.classList.add('low');resEl.textContent='Siła nóg jest wyraźnie za niska. Zacznij od kroku 3 jeszcze dziś i napisz do nas swój wynik.';}
+  }
+  btn.addEventListener('click',function(){
+    if(!running){start=performance.now()-elapsed*1000;running=true;btn.textContent='Stop';resEl.className='result';resEl.textContent='Liczę… Pięć razy wstań i usiądź.';tick();}
+    else{running=false;cancelAnimationFrame(raf);btn.textContent='Start';interpret(elapsed);}
+  });
+  resetBtn.addEventListener('click',function(){
+    running=false;cancelAnimationFrame(raf);elapsed=0;timeEl.innerHTML=fmt(0);btn.textContent='Start';
+    resEl.className='result';resEl.textContent='Naciśnij Start, gdy zaczynasz, i Stop po piątym usiądnięciu.';
+  });
+  resEl.textContent='Naciśnij Start, gdy zaczynasz, i Stop po piątym usiądnięciu.';
+
+  var kg=document.getElementById('kg'), out=document.getElementById('calcOut');
+  var LOW=1.2, HIGH=1.6, MEALS=4;
+  kg.addEventListener('input',function(){
+    var w=parseFloat(String(kg.value).replace(',','.'));
+    if(!w||w<35||w>250){out.textContent='';return;}
+    var lo=Math.round(w*LOW), hi=Math.round(w*HIGH);
+    var mlo=Math.round(lo/MEALS), mhi=Math.round(hi/MEALS);
+    out.textContent='Twój orientacyjny cel: '+lo+'–'+hi+' g białka dziennie, czyli około '+mlo+'–'+mhi+' g w każdym z 4 posiłków.';
+  });
+})();
+</script>
+</body>
+</html>
